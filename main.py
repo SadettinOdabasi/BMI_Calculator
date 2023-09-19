@@ -25,25 +25,29 @@ label3.place(x=50, y=230)
 def calculate():
     kg = float(spinbox_kg.get())
     cm = float(spinbox_cm.get()) / 100
-    bmi = round((kg / (cm ** 2)), 2)
-
-    label4 = Label(text=" ", font=FONT)
-    label4.place(x=50, y=260)
 
     if int(spinbox_kg.get()) == 0 or int(spinbox_kg.get()) == 0:
         label3.config(text="Value must be bigger than 0")
-    elif bmi > 30:
-        label3.config(text="Your BMI is: {}".format(bmi))
-        label4.config(text="You are obese")
-    elif 25 < bmi <= 30:
-        label3.config(text="Your BMI is: {}".format(bmi))
-        label4.config(text="You are overweight")
-    elif 18.5 < bmi <= 25:
-        label3.config(text="Your BMI is: {}".format(bmi))
-        label4.config(text="You are normal")
-    elif bmi < 18.5:
-        label3.config(text="Your BMI is: {}".format(bmi))
-        label4.config(text="You are underweight")
+    else:
+        bmi = round((kg / (cm ** 2)), 2)
+
+        label4 = Label(text=" ", font=FONT)
+        label4.place(x=50, y=260)
+
+        if int(spinbox_kg.get()) == 0 or int(spinbox_kg.get()) == 0:
+            label3.config(text="Value must be bigger than 0")
+        elif bmi > 30:
+            label3.config(text="Your BMI is: {}".format(bmi))
+            label4.config(text="You are obese")
+        elif 25 < bmi <= 30:
+            label3.config(text="Your BMI is: {}".format(bmi))
+            label4.config(text="You are overweight")
+        elif 18.5 < bmi <= 25:
+            label3.config(text="Your BMI is: {}".format(bmi))
+            label4.config(text="You are normal")
+        elif bmi < 18.5:
+            label3.config(text="Your BMI is: {}".format(bmi))
+            label4.config(text="You are underweight")
 
 
 button = Button(text="Calculate", command=calculate, font=FONT)
